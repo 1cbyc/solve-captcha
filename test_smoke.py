@@ -9,7 +9,8 @@ import cv2
 import numpy as np
 
 from solve_captcha import GridSolver
-from solve_captcha.slice import slice_grid, cell_center
+from solve_captcha.slice import slice_grid
+from solve_captcha.action import cell_center
 
 
 def make_test_grid(path: Path) -> None:

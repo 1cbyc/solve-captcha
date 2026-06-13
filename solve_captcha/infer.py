@@ -29,7 +29,9 @@ class OnnxClassifier:
 
     def _preprocess(self, image: np.ndarray) -> np.ndarray:
         inp = self.session.get_inputs()[0]
-        _, c, h, w = inp.shape  # NCHW
+        shape = inp.shape
+        h = shape[2] if isinstance(shape[2], int) else 224
+        w = shape[3] if isinstance(shape[3], int) else 224
         resized = cv2.resize(image, (w, h))
         rgb = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB).astype(np.float32) / 255.0
         chw = np.transpose(rgb, (2, 0, 1))

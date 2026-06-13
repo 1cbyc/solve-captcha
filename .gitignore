@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+cells/
+captcha_download.png
+models/*.onnx
